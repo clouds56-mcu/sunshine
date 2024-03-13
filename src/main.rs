@@ -47,6 +47,7 @@ fn main() {
   let dc = PinDriver::output(peripherals.pins.gpio0).unwrap();
   let rst = PinDriver::output(peripherals.pins.gpio5).unwrap();
   let mut display = ST7735::new(spi, dc, Some(rst), true, true, 128, 128);
+  display.set_offset(2, 1);
 
   display.init(&mut delay).unwrap();
   display.clear(Rgb565::BLUE).unwrap();
